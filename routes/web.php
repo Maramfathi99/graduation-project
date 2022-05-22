@@ -12,7 +12,19 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
+
+Route::get('/register', function () {
+    return view('auth.register');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+Route::resource('/categories',\App\Http\Controllers\CategoryController::class);
+
+Route::get('/{page}', [\App\Http\Controllers\AdminController::class, 'index']);
+require __DIR__.'/auth.php';
