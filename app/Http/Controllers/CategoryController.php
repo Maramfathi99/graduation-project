@@ -36,17 +36,27 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+
         $validatedData = $request->validate([
             'category_name' => 'required|unique:categories|max:255',
+            'photo'=>'image|mimes:jpeg,png,jpg,gif,svg',
         ],[
 
             'category_name.required' =>'يرجى ادخال اسم القسم',
+            'photo.required' =>'يرجى ادخال صورة القسم',
             'category_name.unique' =>'اسم القسم مسجل مسبقا',
 
         ]);
+        if($request->photo){
+            $photoName = $request->photo->store("public/images");
+            $validatedData['photo'] = $photoName;
+
+        }
+//        dd($photoName);
 
         category::create([
             'category_name' => $request->category_name,
+            'photo' => $request->photo,
 
 
         ]);

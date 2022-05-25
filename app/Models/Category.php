@@ -12,4 +12,7 @@ class Category extends Model
         'category_name',
         'photo',
     ];
+    public function services(){
+        return $this->hasMany(service::class);
+    }
 }

@@ -59,6 +59,7 @@
                             <tr>
                                 <th class="border-bottom-0">#</th>
                                 <th class="border-bottom-0">Category name</th>
+                                <th class="border-bottom-0">Category photo</th>
                                 <th class="border-bottom-0">Operations</th>
                             </tr>
                             </thead>
@@ -69,14 +70,24 @@
                                 <tr>
                                     <td>{{$i}}</td>
                                     <td>{{$c->category_name}}</td>
+
+                                    <td>
+                                        @if($c->photo=="")
+                                            <span>No Photo</span>
+                                        @else
+                                            <img style='max-width:100px' src='{{asset("storage/images/$c->photo")}}' />
+{{--                                            <img style='max-width:100px' src='{{asset("images").'/'. $c->photo}}' />--}}
+
+                                        @endif
+                                    </td>
                                     <td>
 
                                         <button class="btn btn-outline-success btn-sm"
-                                                data-id="{{ $c->id }}" data-category_name="{{ $c->category_name }}" data-toggle="modal"
+                                                data-id="{{ $c->id }}" data-category_name="{{ $c->category_name }}" data-photo="{{$c->photo}}" data-toggle="modal"
                                                 href="#exampleModal2" title="Edit">Edit</button>
 
                                         <button class="btn btn-outline-danger btn-sm "
-                                                data-id="{{ $c->id }}" data-category_name="{{ $c->category_name }}"
+                                                data-id="{{ $c->id }}" data-category_name="{{ $c->category_name }}" data-photo="{{$c->photo}}"
                                                 data-toggle="modal" href="#modaldemo9" title="Delete">Delete</button>
 
 
@@ -101,12 +112,16 @@
                                                                       type="button"><span aria-hidden="true">&times;</span></button>
                     </div>
                     <div class="modal-body">
-                        <form action="{{ route('categories.store') }}" method="post">
+                        <form action="{{ route('categories.store') }}" method="post" enctype="multipart/form-data">
                            @csrf
 
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Category name</label>
                                 <input type="text" class="form-control" id="category_name" name="category_name">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Category photo</label>
+                                <input type="file" class="form-control" id="photo" name="photo">
                             </div>
 
                             <div class="modal-footer">
