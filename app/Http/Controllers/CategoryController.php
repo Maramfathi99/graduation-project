@@ -36,12 +36,10 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-
         $validatedData = $request->validate([
             'category_name' => 'required|unique:categories|max:255',
-            'photo'=>'image|mimes:jpeg,png,jpg,gif,svg',
+            'photo'=>'required|image|mimes:jpeg,png,jpg,gif,svg',
         ],[
-
             'category_name.required' =>'يرجى ادخال اسم القسم',
             'photo.required' =>'يرجى ادخال صورة القسم',
             'category_name.unique' =>'اسم القسم مسجل مسبقا',
@@ -49,17 +47,10 @@ class CategoryController extends Controller
         ]);
         if($request->photo){
             $photoName = $request->photo->store("public/images");
+            $photoName = $request->photo->hashName();
             $validatedData['photo'] = $photoName;
-
         }
-//        dd($photoName);
-
-        category::create([
-            'category_name' => $request->category_name,
-            'photo' => $request->photo,
-
-
-        ]);
+        category::create($validatedData);
         session()->flash('Add', 'تم اضافة القسم بنجاح ');
         return redirect('/categories');
     }
@@ -97,21 +88,22 @@ class CategoryController extends Controller
     {
         $id = $request->id;
 
-        $this->validate($request, [
 
-            'category_name' => 'required|max:255|unique:categories,category_name,'.$id,
+        $validatedData = $request->validate([
+            'category_name' => 'required|unique:categories|max:255'.$id,
+            'photo'=>'required|image|mimes:jpeg,png,jpg,gif,svg'.$id,
         ],[
-
-            'category_name.required' =>'يرجي ادخال اسم القسم',
+            'category_name.required' =>'يرجى ادخال اسم القسم',
+            'photo.required' =>'يرجى ادخال صورة القسم',
             'category_name.unique' =>'اسم القسم مسجل مسبقا',
-
         ]);
-
+        if($request->photo){
+            $photoName = $request->photo->store("public/images");
+            $photoName = $request->photo->hashName();
+            $validatedData['photo'] = $photoName;
+        }
         $categories = category::find($id);
-        $categories->update([
-            'category_name' => $request->category_name,
-
-        ]);
+        $categories->update($validatedData);
 
         session()->flash('edit','تم تعديل القسم بنجاج');
         return redirect('/categories');

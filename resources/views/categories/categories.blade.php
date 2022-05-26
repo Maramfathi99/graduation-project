@@ -112,7 +112,7 @@
                                                                       type="button"><span aria-hidden="true">&times;</span></button>
                     </div>
                     <div class="modal-body">
-                        <form action="{{ route('categories.store') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('categories.store') }}" method="POST" enctype="multipart/form-data">
                            @csrf
 
                             <div class="form-group">
@@ -146,13 +146,17 @@
                     </div>
                     <div class="modal-body">
 
-                        <form  action="categories/update" method="post" autocomplete="off">
-                            {{ method_field('PUT') }}
+                        <form  action="categories/update" method="POST" autocomplete="off" enctype='multipart/form-data'>
+                        @method("put")
                            @csrf
                             <div class="form-group">
                                 <input type="hidden" name="id" id="id" value="">
                                 <label for="recipient-name" class="col-form-label">Category name:</label>
                                 <input class="form-control" name="category_name" id="category_name" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Category photo</label>
+                                <input type="file" class="form-control" id="photo" name="photo">
                             </div>
 
                             <div class="modal-footer">
