@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateServiceAttachmentsTable extends Migration
+class AddPhotoToServicesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateServiceAttachmentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('service_attachments', function (Blueprint $table) {
-            $table->id();
+        Schema::table('services', function (Blueprint $table) {
             $table->string('photo')->nullable();
-//            $table->foreignId('service-id')->references('id')->on('services')->onDelete('cascade');
-            $table->softDeletes();
-            $table->timestamps();
+
         });
     }
 
@@ -29,6 +26,9 @@ class CreateServiceAttachmentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('service_attachments');
+        Schema::table('services', function (Blueprint $table) {
+            $table->dropColumn('photo');
+
+        });
     }
 }

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\service;
+use App\Models\category;
 use Illuminate\Http\Request;
+
 
 class ServiceController extends Controller
 {
@@ -14,7 +16,8 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        //
+        $services = service::all();
+        return view('services.services',compact('services'));
     }
 
     /**
@@ -78,8 +81,11 @@ class ServiceController extends Controller
      * @param  \App\Models\service  $service
      * @return \Illuminate\Http\Response
      */
-    public function destroy(service $service)
+    public function destroy(Request $request)
     {
-        //
+        $id = $request->id;
+        service::find($id)->delete();
+        session()->flash('delete','تم حذف القسم بنجاح');
+        return redirect('/admin/services');
     }
 }

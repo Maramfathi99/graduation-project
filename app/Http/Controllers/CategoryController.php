@@ -52,7 +52,7 @@ class CategoryController extends Controller
         }
         category::create($validatedData);
         session()->flash('Add', 'تم اضافة القسم بنجاح ');
-        return redirect('/categories');
+        return redirect('/admin/categories');
     }
 
     /**
@@ -106,7 +106,7 @@ class CategoryController extends Controller
         $categories->update($validatedData);
 
         session()->flash('edit','تم تعديل القسم بنجاج');
-        return redirect('/categories');
+        return redirect('/admin/categories');
     }
 
 
@@ -121,6 +121,6 @@ class CategoryController extends Controller
         $id = $request->id;
         category::find($id)->delete();
         session()->flash('delete','تم حذف القسم بنجاح');
-        return redirect('/categories');
+        return redirect('/admin/categories');
     }
 }

@@ -1,5 +1,8 @@
 @extends('layouts.master')
 
+@section('title')
+Categories
+@stop
 @section('content')
 
 

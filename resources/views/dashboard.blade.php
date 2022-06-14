@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-    مشروع التخرج - الصفحة الرئيسية
+    الصفحة الرئيسية
 @stop
 @section('css')
 

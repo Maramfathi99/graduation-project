@@ -24,7 +24,11 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::prefix('admin')->group(function () {
 Route::resource('/categories',\App\Http\Controllers\CategoryController::class);
+Route::resource('/services',\App\Http\Controllers\ServiceController::class);
+
+});
 
 Route::get('/{page}', [\App\Http\Controllers\AdminController::class, 'index']);
 require __DIR__.'/auth.php';
