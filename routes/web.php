@@ -13,6 +13,61 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', function () {
+    return view('front.index');
+});
+Route::get('/add-service', function () {
+    return view('front.add-service');
+});
+Route::get('/front-login', function () {
+    return view('front.login');
+});
+Route::get('/sign-up-as', function () {
+    return view('front.sign-up-as');
+});
+Route::get('/sign-up-tech', function () {
+    return view('front.sign-up-tech');
+});
+Route::get('/sign-up-customer', function () {
+    return view('front.sign-up-customer');
+});
+Route::get('/service-details', function () {
+    return view('front.service-details');
+});
+Route::get('/common-questions', function () {
+    return view('front.common-questions');
+});
+Route::get('/about', function () {
+    return view('front.about');
+});
+Route::get('/messages', function () {
+    return view('front.messages');
+});
+Route::get('/notifications', function () {
+    return view('front.notifications');
+});
+Route::get('/chat', function () {
+    return view('front.chat');
+});
+Route::get('/tech-profile', function () {
+    return view('front.tech-profile');
+});
+Route::get('/resevations-list', function () {
+    return view('front.resevations-list');
+});
+Route::get('/appointments', function () {
+    return view('front.appointments');
+});
+Route::get('/forget-password', function () {
+    return view('front.forget-password');
+});
+
+
+
+
+
+
+
+Route::get('/login', function () {
     return view('auth.login');
 });
 
