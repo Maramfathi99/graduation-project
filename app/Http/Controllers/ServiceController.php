@@ -27,7 +27,8 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        //
+
+
     }
 
     /**
@@ -38,7 +39,8 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+
     }
 
     /**

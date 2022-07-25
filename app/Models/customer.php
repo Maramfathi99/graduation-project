@@ -8,6 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class customer extends Model
 {
     use HasFactory,softDeletes;
-    protected $fillable = ['name','email','password','mobile','photo'];
+    protected $fillable =[
+
+            'name',
+            'email',
+            'password',
+            'mobile',
+            'photo',
+        ];
 
 }

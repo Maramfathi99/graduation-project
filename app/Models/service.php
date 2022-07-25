@@ -14,16 +14,16 @@ class service extends Model
         'description',
         'price',
         'status',
-        'category-id',
-        'serviceProvider-id',
-        'admin-id',
+        'category_id',
+        'serviceProvider_id',
+        'admin_id',
         'photo',
     ];
 
     public function category(){
-        return $this->belongsTo(Category::class,'category-id');
+        return $this->belongsTo(Category::class,'category_id');
 
     }  public function serviceProvider(){
-        return $this->belongsTo(serviceProvider::class,'serviceProvider-id');
+        return $this->belongsTo(serviceProvider::class,'serviceProvider_id');
     }
 }

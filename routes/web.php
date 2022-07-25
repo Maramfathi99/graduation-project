@@ -12,15 +12,21 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return view('front.index');
-});
-Route::get('/add-service', function () {
-    return view('front.add-service');
-});
+//Route::get('/', function () {
+//    return view('front.index');
+//});
+Route::resource('/',\App\Http\Controllers\MainPageController::class);
+
+//Route::get('/add-service', function () {
+//    return view('front.add-service');
+//});
+Route::post('/add-service',[\App\Http\Controllers\AddServiceController::class,'store'])->name('add-service');
+
 Route::get('/front-login', function () {
     return view('front.login');
 });
+//Route::post('/front-login',[\App\Http\Controllers\ServiceProviderController::class,'login'])->name('front-login');
+
 Route::get('/sign-up-as', function () {
     return view('front.sign-up-as');
 });
@@ -48,9 +54,9 @@ Route::get('/notifications', function () {
 Route::get('/chat', function () {
     return view('front.chat');
 });
-Route::get('/tech-profile', function () {
-    return view('front.tech-profile');
-});
+
+Route::resource('/tech-profile',\App\Http\Controllers\ServiceProviderController::class);
+
 Route::get('/resevations-list', function () {
     return view('front.resevations-list');
 });

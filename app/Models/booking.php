@@ -7,5 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class booking extends Model
 {
-    use HasFactory;
+    use HasFactory,softDeletes;
+    protected $fillable =[
+
+        'date',
+        'time',
+
+    ];
+
+
 }

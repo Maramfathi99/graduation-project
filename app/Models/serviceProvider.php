@@ -17,7 +17,7 @@ class serviceProvider extends Model
         'mobile',
         'photo',
         'description',
-        'working-time',
+        'working_time',
         'country',
         'city',
         'job'];

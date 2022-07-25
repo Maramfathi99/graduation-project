@@ -14,7 +14,8 @@ class ServiceProviderController extends Controller
      */
     public function index()
     {
-        //
+        $technical = serviceProvider::all();
+        return view('front.tech-profile',compact('technical'));
     }
 
     /**

@@ -41,7 +41,7 @@
                                 <i class="color-3 icon-nav fas fa-user"></i>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ url('/' . $page='front.tech-profile') }}"><i class="color-4 mr-2 icon-nav fas fa-user"></i> My Profile</a>
+                                <a class="dropdown-item" href="{{ url('/' . $page='tech-profile') }}"><i class="color-4 mr-2 icon-nav fas fa-user"></i> My Profile</a>
                             </div>
                         </li>
                     </ul>
@@ -51,23 +51,30 @@
     </nav>
 </header>
 <main>
-
+    @foreach($technical as $t)
     <section class=" text-white">
         <div class=" container">
             <div class="row">
                 <div class="col-md-12 mt-4">
                     <div class="mb-3 img-user">
-                        <img src="{{ asset('./front/images/user.jpg')}}" alt="">
+                        @if($t->photo=="")
+                            <span>No Photo</span>
+                        @else
+                            <img style='max-width:100px' src='{{ asset("storage/images/$t->photo")}}' />
+                        @endif
                     </div>
-                    <h3 class=" text-center mb-5 color-3" >Abeer Emad Eljorani</h3>
+
+                    <h3 class=" text-center mb-5 color-3" >{{$t->name}}</h3>
+
                 </div>
                 <div class="col-md-8">
                     <div class="row">
                         <div class="col-md-12 p-4  div-color">
                             <h3>Brief About Me</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis sequi dicta aperiam, perspiciatis nam impedit unde blanditiis saepe veritatis hic voluptatibus magni odio sed est, veniam quas cupiditate voluptates explicabo?</p>
+                            <p>{{$t->description}}</p>
                         </div>
                         <div class="col-md-12 p-4 mt-3 div-color">
+
                             <h3>My Services</h3>
                             <div class="row">
                                 <div class="col-md-3 mt-3">
@@ -121,42 +128,61 @@
                         <div class="col-md-12 div-color p-4">
                             <h3>Statistics</h3>
                             <div class="row">
-                                <div class="col-md-4 col-4">
-                                    <p class="p">Reviews</p>
+                                <div class="col-md-4 col-6">
+                                    <p class="pp">Email</p>
                                 </div>
-                                <div class="col-md-8 col-8">
-                                    <span><i class="fas fa-star color-3" ></i><i class="fas fa-star color-3" ></i><i class="fas fa-star color-3"></i><i class="fas fa-star color-fa-star"></i><i class="fas fa-star color-fa-star" ></i> </span>
+                                <div class="col-md-8 col-6">
+                                    <p class="pp">{{$t->email}}</p>
+
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-4 col-6">
-                                    <p class="pp">Response Speed</p>
+                                    <p class="pp">Job</p>
                                 </div>
                                 <div class="col-md-8 col-6">
-                                    <p class="pp">Five hours</p>
+                                    <p class="pp">{{$t->job}}</p>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-4 col-6">
-                                    <p class="pp">Published Service</p>
+                                    <p class="pp">Mobile</p>
                                 </div>
                                 <div class="col-md-8 col-6">
-                                    <p class="pp">5</p>
+                                    <p class="pp">{{$t->mobile}}</p>
 
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-12 col-12">
-                                    <p class="pp">Data of Registration</p>
-
-                                    <p class="pp">last seen</p>
+                                <div class="col-md-4 col-6">
+                                    <p class="pp">Country</p>
                                 </div>
+                                <div class="col-md-8 col-6">
+                                    <p class="pp">{{$t->country}}</p>
 
+                                </div>
                             </div>
+                            <div class="row">
+                                <div class="col-md-4 col-6">
+                                    <p class="pp">City</p>
+                                </div>
+                                <div class="col-md-8 col-6">
+                                    <p class="pp">{{$t->city}}</p>
 
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-6">
+                                    <p class="pp">Working Time</p>
+                                </div>
+                                <div class="col-md-6 col-6">
+                                    <p class="pp">{{$t->working_time}}</p>
+
+                                </div>
+                            </div>
                         </div>
                         <div class="col-md-12 div-color p-4 mt-4">
-                            <h3>Share The Service</h4>
+                            <h4>Share The Service</h4>
                                 <div class=" mx-3 mt-4">
                                     <a class="icon" href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
                                     <a class="icon" href="https://www.twitter.com/"><i class="fab fa-twitter"></i></a>
@@ -178,7 +204,7 @@
         </div>
         </div>
     </section>
-
+    @endforeach
 </main>
 
 @include('front.layout.footer')

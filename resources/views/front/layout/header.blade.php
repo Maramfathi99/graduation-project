@@ -20,7 +20,7 @@
                                 <i class="color-3 mr-3 mt-1 icon-nav fas fa-user"></i>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ url('/' . $page='front.tech-profile') }}"><i class="color-4 mr-2 icon-nav fas fa-user"></i> My Profile</a>
+                                <a class="dropdown-item" href="{{ url('/' . $page='tech-profile') }}"><i class="color-4 mr-2 icon-nav fas fa-user"></i> My Profile</a>
                             </div>
                         </li>
 
