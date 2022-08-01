@@ -20,15 +20,15 @@
                                 <input type="text" class="w-100" id="title" name="title">
 
                             </div>
-{{--                            <div class="col-md-6">--}}
+                            <div class="col-md-6">
 {{--                                <select name="" id="" class=" w-100 mt-4 py-1 size_label">--}}
 {{--                                    <option value="" >category</option>--}}
-{{--                                    @foreach($categories as $category)--}}
-{{--                                        <option {{request()->category_id ==$category->id?'selected':""}} value='{{$category->id}}'>{{$category->category_name}}</option>--}}
-{{--                                        <option value="{{ $category->id }}" {{ ( $category->id == $id) ? 'selected' : '' }}> {{ $category->category_name }} </option>--}}
+{{--                                    @foreach($services as $s)--}}
+{{--                                        <option {{request()->category_id ==$s->id?'selected':""}} value='{{$s->id}}'>{{$s->Catefory->category_name}}</option>--}}
+{{--                                        <option value="{{ $s->Category->category_name }}" {{ ( $s->id == $id) ? 'selected' : '' }}> {{ $s->Catefory->category_name }} </option>--}}
 {{--                                    @endforeach--}}
 {{--                                </select>--}}
-{{--                            </div>--}}
+                            </div>
 
                             <div class="col-md-12 mt-3">
                                 <label class="size_label">Service Description </label>

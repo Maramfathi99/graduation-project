@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 //    return view('front.index');
 //});
 Route::resource('/',\App\Http\Controllers\MainPageController::class);
+Route::get('/service-details',[\App\Http\Controllers\ServiceDetailsController::class,'index']);
 
 //Route::get('/add-service', function () {
 //    return view('front.add-service');
@@ -36,9 +37,7 @@ Route::get('/sign-up-tech', function () {
 Route::get('/sign-up-customer', function () {
     return view('front.sign-up-customer');
 });
-Route::get('/service-details', function () {
-    return view('front.service-details');
-});
+
 Route::get('/common-questions', function () {
     return view('front.common-questions');
 });

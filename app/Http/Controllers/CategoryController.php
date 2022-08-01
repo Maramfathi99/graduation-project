@@ -90,12 +90,12 @@ class CategoryController extends Controller
 
 
         $validatedData = $request->validate([
-            'category_name' => 'required|unique:categories|max:255'.$id,
+            'category_name' => 'required|max:255'.$id,
             'photo'=>'required|image|mimes:jpeg,png,jpg,gif,svg'.$id,
         ],[
             'category_name.required' =>'يرجى ادخال اسم القسم',
             'photo.required' =>'يرجى ادخال صورة القسم',
-            'category_name.unique' =>'اسم القسم مسجل مسبقا',
+
         ]);
         if($request->photo){
             $photoName = $request->photo->store("public/images");

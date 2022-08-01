@@ -10,9 +10,9 @@ class AddServiceController extends Controller
 {
     public function index()
     {
+
         $services = service::all();
-        $categories =Category::all();
-        return view('front.add-service',compact('services','categories'));
+        return view('front.add-service',compact('services'));
     }
     public function create()
     {

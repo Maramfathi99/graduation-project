@@ -74,7 +74,6 @@
                             <p>{{$t->description}}</p>
                         </div>
                         <div class="col-md-12 p-4 mt-3 div-color">
-
                             <h3>My Services</h3>
                             <div class="row">
                                 <div class="col-md-3 mt-3">

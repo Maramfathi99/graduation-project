@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\service;
 use App\Models\serviceAttachments;
+use App\Models\serviceProvider;
 use Illuminate\Http\Request;
 
-class ServiceAttachmentsController extends Controller
+class ServiceDetailsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +16,9 @@ class ServiceAttachmentsController extends Controller
      */
     public function index()
     {
-        //
+        $services = service::all();
+        return view('front.service-details',compact('services'));
+
     }
 
     /**
