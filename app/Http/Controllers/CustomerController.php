@@ -14,7 +14,8 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        //
+        $customer = customer::all();
+        return view('customers.customers',compact('customer'));
     }
 
     /**
@@ -78,8 +79,11 @@ class CustomerController extends Controller
      * @param  \App\Models\customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(customer $customer)
+    public function destroy(Request $request)
     {
-        //
+        $id = $request->id;
+        customer::find($id)->delete();
+        session()->flash('delete','تم حذف مقدم الخدمة بنجاح');
+        return redirect('/admin/customers');
     }
 }

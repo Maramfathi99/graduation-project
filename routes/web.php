@@ -23,10 +23,11 @@ Route::get('/service-details',[\App\Http\Controllers\ServiceDetailsController::c
 //});
 Route::post('/add-service',[\App\Http\Controllers\AddServiceController::class,'store'])->name('add-service');
 
-Route::get('/front-login', function () {
-    return view('front.login');
-});
-//Route::post('/front-login',[\App\Http\Controllers\ServiceProviderController::class,'login'])->name('front-login');
+//Route::get('/front-login', function () {
+//    return view('front.login');
+//});
+Route::get('front-login', [\App\Http\Controllers\TechnicalAuthController::class, 'index'])->name('front-login');
+Route::post('post-login', [\App\Http\Controllers\TechnicalAuthController::class, 'postLogin'])->name('login.post');
 
 Route::get('/sign-up-as', function () {
     return view('front.sign-up-as');
@@ -87,6 +88,9 @@ Route::get('/dashboard', function () {
 Route::prefix('admin')->group(function () {
 Route::resource('/categories',\App\Http\Controllers\CategoryController::class);
 Route::resource('/services',\App\Http\Controllers\ServiceController::class);
+Route::resource('/technicals',\App\Http\Controllers\TechnicalsController::class);
+Route::resource('/customers',\App\Http\Controllers\CustomerController::class);
+Route::resource('/bookings',\App\Http\Controllers\BookingController::class);
 
 });
 

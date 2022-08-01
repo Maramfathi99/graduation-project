@@ -15,7 +15,7 @@
                             <div class="m-t p-3">
                                 <h3 class="fav-color mt-3">Login</h3>
                             </div>
-                            <form action="" method="POST" class=" px-5 form-technical">
+                            <form action="{{ route('login.post') }}"method="POST" class=" px-5 form-technical">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-12">

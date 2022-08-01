@@ -23,6 +23,10 @@ class serviceProvider extends Model
         'job'];
     public function services(){
         return $this->hasMany(service::class);
+
+    }
+    public function bookings(){
+        return $this->hasMany(booking::class);
     }
 
 }

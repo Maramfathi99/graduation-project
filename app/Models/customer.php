@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\softDeletes;
+
 
 class customer extends Model
 {
@@ -16,5 +18,8 @@ class customer extends Model
             'mobile',
             'photo',
         ];
+    public function bookings(){
+        return $this->hasMany(booking::class);
 
+    }
 }

@@ -14,7 +14,8 @@ class BookingController extends Controller
      */
     public function index()
     {
-        //
+        $booking = booking::all();
+        return view('bookings.bookings',compact('booking'));
     }
 
     /**
@@ -78,8 +79,11 @@ class BookingController extends Controller
      * @param  \App\Models\booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function destroy(booking $booking)
+    public function destroy(Request $request)
     {
-        //
+        $id = $request->id;
+        booking::find($id)->delete();
+        session()->flash('delete','تم حذف الحجز بنجاح');
+        return redirect('/admin/bookings');
     }
 }

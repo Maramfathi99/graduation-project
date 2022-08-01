@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="mb-3 d-flex">
-                    <a  href="{{ url('/' . $page='front.index') }}"> <img src="{{ asset('./front/images/Screenshot_2022-05-13_150014-removebg-preview.png')}}" class="w-75" alt="">
+                    <a  href="{{ url('/' . $page='#') }}"> <img src="{{ asset('./front/images/Screenshot_2022-05-13_150014-removebg-preview.png')}}" class="w-75" alt="">
                     </a>
                 </div>
                 <div class="item-cont-foter-text">
@@ -15,7 +15,7 @@
                 </div>
             </div>
             <div class="col-md-4 mt-5 pl-5 item-cont-foter-text2 ">
-                <a href="{{ url('/' . $page='front.index') }}" class="text-white"><h5>Services Provided </h5></a>
+                <a href="{{ url('/' . $page='#') }}" class="text-white"><h5>Services Provided </h5></a>
                 <a href="{{ url('/' . $page='front.about') }}" class="text-white"><h5>About Services Provided </h5>
                 </a>
                 <a href="{{ url('/' . $page='front.common-questions') }}" class="text-white"><h5>Common Question</h5></a>

@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark ">
         <div class="container">
 
-            <a class="navbar-brand" href="{{ url('/' . $page='front.index') }}"><img class=" w-20"
+            <a class="navbar-brand" href="{{ url('/' . $page='#') }}"><img class=" w-20"
                                                   src="{{ asset('./front/images/Screenshot_2022-05-13_150014-removebg-preview.png')}}" alt=""></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"

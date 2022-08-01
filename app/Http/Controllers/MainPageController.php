@@ -15,7 +15,7 @@ class MainPageController extends Controller
         }
         $services =service::where("title","like","%$q%")
             ->orWhere("serviceProvider_id","like","%$q%")
-            ->paginate(6)
+            ->paginate(30)
             ->appends(['q'=>$q]);
         return view('front.index',compact('services'));
 

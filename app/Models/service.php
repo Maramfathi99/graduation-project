@@ -26,4 +26,8 @@ class service extends Model
     }  public function serviceProvider(){
         return $this->belongsTo(serviceProvider::class,'serviceProvider_id');
     }
+    public function bookings(){
+        return $this->hasMany(booking::class);
+
+    }
 }
