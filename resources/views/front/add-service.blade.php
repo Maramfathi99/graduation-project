@@ -1,6 +1,15 @@
 @extends('front.layout.app')
 
 @section('content')
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <main>
         <section class=" my-5 add-service">
             <div class=" container">

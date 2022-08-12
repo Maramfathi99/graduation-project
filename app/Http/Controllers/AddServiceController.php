@@ -29,7 +29,13 @@ class AddServiceController extends Controller
             'description'=>'required|max:255|string',
             'photo'=>'required|image|mimes:jpeg,png,jpg,gif,svg',
             'price'=>'required|max:50|string',
+        ],[
+        'title.required' =>'يرجى ادخال عنوان الخدمة',
+            'description.required' =>'يرجى ادخال وصف الخدمة',
+            'photo.required' =>'يرجى ادخال صورة الخدمة',
+            'price.required' =>'يرجى ادخال سعر الخدمة',
         ]);
+
 
         if($request->photo){
             $photoName = $request->photo->store("public/images");

@@ -60,7 +60,7 @@
                                     <td>{{$b->date}}</td>
                                     <td>{{$b->time}}</td>
                                     <td>{{$b->address}}</td>
-                                    <td>{{$b->desciption}}</td>
+                                    <td>{{$b->description}}</td>
                                     <td>{{$b->serviceProvider->name}}</td>
                                     <td>{{$b->customer->name}}</td>
                                     <td>{{$b->service->title}}</td>
