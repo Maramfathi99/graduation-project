@@ -24,8 +24,6 @@
                             </div>
                         </li>
 
-                        <li class=" mr-3 mt-1 icon-nav"><a href="{{ url('/' . $page='front.login') }}" class="color-3">Login</a>
-                        </li>
                     </ul>
                 </form>
             </div>

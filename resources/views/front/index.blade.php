@@ -13,8 +13,10 @@
                         <a class="dropdown-item" href="#">{{$s->title}}</a>
                         @endforeach
                     </div>
-                    <input name="q" value="{{request()->q}}" autofocus type="search" class="input-search"  placeholder="Enter your search ...">
-
+                    <form action="{{route('index')}}" method="get">
+                        <input name="q" value="{{request()->q}}" autofocus type="search" class="input-search"
+                               placeholder="Enter your search ...">
+                    </form>
                     <a href=""><i class="fas fa-search "></i></a>
 
                 </div>
