@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Customers
+    Booking
 @stop
 @section('content')
 
